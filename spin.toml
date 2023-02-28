@@ -10,10 +10,3 @@ id = "bartholomew"
 files = [ "content/**/*", "templates/*", "scripts/*", "config/*", "shortcodes/*"]
 [component.trigger]
 route = "/..."
-
-[[component]]
-source = "modules/spin_static_fs.wasm"
-id = "fileserver"
-files = [ { source = "static/", destination = "/" } ]
-[component.trigger]
-route = "/static/..."
