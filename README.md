@@ -1,6 +1,7 @@
-# Bartholomew Site Template
+# Bartholomew Site Running in Docker
 
-This repository is a template for creating new [Bartholomew](https://github.com/fermyon/bartholomew) websites.
+This repository showcases how to run the Bartholomew micro-cms for Webassembly
+using Docker.
 
 ## Directory Structure:
 
@@ -12,20 +13,19 @@ This repository is a template for creating new [Bartholomew](https://github.com/
 - `templates/`: Your handlebars templates go here. 
 - `shortcodes/`: Your [shortcodes](https://bartholomew.fermyon.dev/shortcodes) go here. 
 
-## Installation of Spin
 
-To use Bartholomew, you will need to install [Spin](https://spin.fermyon.dev).
-Once you have Wagi installed, you can continue setting up Bartholomew.
+## Running
 
-To start your website, run the following command from this directory:
+First build the application:
 
 ```console
-$ spin up --follow-all
-spin up --follow-all
-Serving HTTP on address http://127.0.0.1:3000
-Available Routes:
-  bartholomew: http://127.0.0.1:3000 (wildcard)
-  fileserver: http://127.0.0.1:3000/static (wildcard)
+$ docker build -t my-cms .
+```
+
+You can then run it with 
+
+```console
+$ docker run --runtime=io.containerd.spin.v1 -p 3000:80 my-cms
 ```
 
 Now you can point your web browser to `http://localhost:3000/` and see your new Bartholomew site.
